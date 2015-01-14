@@ -1,0 +1,9 @@
+# Site settings
+title: "vivi's IDEA" # Your Title
+tagline: '网络笔记本，个人技术记录' # A brief tagline for your site
+sidebar_image: /images/cover.jpg
+
+# Build settings
+markdown: redcarpet
+highlighter: pygments
+baseurl: # the subpath of your site, e.g. /blog/
