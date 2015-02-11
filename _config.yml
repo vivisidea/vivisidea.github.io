@@ -8,3 +8,4 @@ url: http://www.vivisidea.info
 markdown: redcarpet
 highlighter: pygments
 baseurl: # the subpath of your site, e.g. /blog/
+paginate: 5
