@@ -1,36 +1,111 @@
-Strange Case
-============
+# Tools
 
-Strange Case is a simple, clean and responsive theme for Jekyll. 
+>Tools for web
+
+### Response
+
+* [Responsinator](http://www.responsinator.com/)
+* [viewport-resizer](http://lab.maltewassermann.com/viewport-resizer/)
+* [Media Queri](http://mediaqueri.es/)
+
+### Placeholder
+
+* [placehold.it](http://placehold.it/)
+* [temp.im](http://temp.im/)
+* [lorempixel](http://lorempixel.com/)
+* [dummyimage](http://dummyimage.com/)
+
+### Favicon
+
+* [favicon.cc](http://www.favicon.cc/)
+* [favicon-generator](http://favicon-generator.org/)
+* [xiconeditor](http://www.xiconeditor.com/)
+* [tool.lu favicon](http://tool.lu/favicon/)
+* [bitbug](http://www.bitbug.net/)
+
+### CDN
+* [staticfile](http://www.staticfile.org/)
+* [bootcss cdn](http://open.bootcss.com/)
+* [cdnjs.cn](http://www.cdnjs.cn/)
+* [cdnjs](http://cdnjs.com/)
+* [upai](http://jscdn.upai.com/)
+* [Baidu cdn](http://cdn.code.baidu.com/)
+* [360 cdn](http://libs.useso.com/)
+* [jquery cdn](http://code.jquery.com/)
+* [lib.sinaapp](http://lib.sinaapp.com/)
+
+### CSS
+
+* [css-triangle-generator](http://apps.eky.hk/css-triangle-generator/zh-hant)
+* [css3lib](http://css3lib.alloyteam.com/)
+* [csszengarden](http://www.csszengarden.com/)
+* [css3Preview](http://www.css88.com/tool/css3Preview/)
+* [CSS Gradient Generator](http://www.colorzilla.com/gradient-editor/)
+* [prefixmycss](http://prefixmycss.com/)
+* [cssBeutify](http://tool.lu/css/)
+
+### Image compression
+
+* [punypng](http://www.punypng.com/)
+* [webresizer](http://www.webresizer.com/resizer/)
+* [TinyPNG](https://tinypng.com)
+* [smushit](http://www.smushit.com/ysmush.it/)
+* [AlloyPhoto](http://alloyteam.github.io/AlloyPhoto/)
+
+### JavaScript
+
+* [jsBeutify](http://tool.lu/js/)
+* [jsbeautifier](http://jsbeautifier.org/)
+* [jsfiddle](http://jsfiddle.net/)
+* [jsbin](http://jsbin.com/)
+
+### Pagespeed
+
+* [PageSpeed](https://chrome.google.com/webstore/detail/gplegfbjlmmehdoakndmohflojccocli)
+* [YSlow](https://addons.mozilla.org/zh-cn/firefox/addon/yslow/)
+* [Alibench](http://alibench.com/)
+* [Webkaka](http://pagespeed.webkaka.com/)
 
 
-### Demo 
+### Color
 
-[Demo](http://thephuse.github.io/strange_case/)
+* [nipponcolors](http://nipponcolors.com/)
+* [flatuicolors](http://flatuicolors.com/)
+* [ios7colors](http://ios7colors.com/)
+* [Color Thief](http://lokeshdhakar.com/projects/color-thief/)
+* [color-hex](http://www.color-hex.com/)
+* [colors](https://github.com/mrmrs/colors)
+* [chuantongsecai](http://ylbook.com/cms/web/chuantongsecai/chuantongsecai.htm)
 
-### Overview 
+### Font
 
-* Fixed Sidebar with cover image
-* Minimal design 
-* Easy to configure
-* Browser support: Latest releases of Chrome, Safari, Firefox, Mobile Safari and IE 9+.
+* [Google Fonts](https://www.google.com/fonts)
+* [dafont](http://www.dafont.com/)
+* [youziku](http://www.youziku.com/)
+* [qiuziti](http://www.qiuziti.com/)
+* [fonts2u](http://www.fonts2u.com/index.html)
+* [webfonts](http://webfonts.fonts.com/)
+* [justfont](http://www.justfont.com/)
+* [iconpark](https://github.com/lvwzhen/iconpark)
 
-### Screenshots
+### API Doc
 
-![screenshot](/images/screenshot1.png)
-![screenshot](/images/screenshot2.png)
+* [Jquery API](http://jquery.bootcss.com/)
+* [OverAPI](http://overapi.com/)
+* [devdocs](http://devdocs.io/)
+* [oschina apidoc](http://tool.oschina.net/apidocs)
 
-### Setup
+### Git Host
 
-1. Install [Jekyll](http://jekyllrb.com/)
-2. Fork or [download](https://github.com/thephuse/strange_case) this theme repo
-3. Edit the `_config.yml` file (if you make any additional changes to this file, you will need to stop and restart your command in the next step)
-4. From your command line, switch to your site directory and build using `jekyll serve`
-5. Site will be accessible by viewing http://localhost:4000/strange_case/
+* [GitHub](https://github.com/)
+* [Bitbucket](https://bitbucket.org/)
+* [GitLab](https://about.gitlab.com/)
+* [GitCafe](https://gitcafe.com/)
+* [Git@OSC](http://git.oschina.net/)
 
-### Download
 
-[Download](https://github.com/thephuse/strange_case)
 
-### License
-* [MIT](http://opensource.org/licenses/MIT)
+
+
+
+
