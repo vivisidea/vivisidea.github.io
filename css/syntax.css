@@ -1,6 +1,16 @@
 p code, li code { padding: 1px 5px; border: 1px solid #e8e8e8; border-radius: 3px; background-color: #f7f7f7; }
 
-.highlight { margin-bottom:15px; background-color: #f7f7f7; padding: 10px; border-bottom: 1px solid #ddd; border: 1px solid #ddd; border-radius: 3px; font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace !important; }
+.highlight { 
+    margin-bottom:15px; 
+    background-color: #f7f7f7; 
+    padding: 10px; 
+    border-bottom: 1px solid #ddd; 
+    border: 1px solid #ddd; 
+    border-radius: 3px; 
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace !important; 
+    word-wrap: break-word;
+    word-break: normal;
+}
 .highlight .c { color: #60a0b0; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #007020; font-weight: bold } /* Keyword */
