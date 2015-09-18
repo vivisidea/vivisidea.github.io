@@ -1,111 +1,133 @@
-# Tools
+#Hux Blog
 
->Tools for web
+###[View Live Hux Blog &rarr;](http://huxpro.github.io)
 
-### Response
+![](http://huangxuan.me/img/blog-desktop.jpg)
 
-* [Responsinator](http://www.responsinator.com/)
-* [viewport-resizer](http://lab.maltewassermann.com/viewport-resizer/)
-* [Media Queri](http://mediaqueri.es/)
+## New Feature (V1.1）
 
-### Placeholder
+- We now support a clean and gorgeous **[SideBar](#sidebar)** for displaying more info
+- **[Friends](#friends)** is also added as a common feature of a blog theme
 
-* [placehold.it](http://placehold.it/)
-* [temp.im](http://temp.im/)
-* [lorempixel](http://lorempixel.com/)
-* [dummyimage](http://dummyimage.com/)
+## Feature
 
-### Favicon
+- Full-feature **Tag** support
+- UX optimize for mobile used (bunch of `webkit-vender-something`)
+- Typographic optimize for Chinese (font-family, size, weight..)
+- Network optimze for China network environment (drop google webfont, use local CDN)
+- Using [Github Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)
+- Use [DuoShuo](http://duoshuo.com/) as the Disqus-like third party discussion system
+- Use Baidu, Tencent/QQ analysis *(TODO: support GA)*
 
-* [favicon.cc](http://www.favicon.cc/)
-* [favicon-generator](http://favicon-generator.org/)
-* [xiconeditor](http://www.xiconeditor.com/)
-* [tool.lu favicon](http://tool.lu/favicon/)
-* [bitbug](http://www.bitbug.net/)
+## Support
 
-### CDN
-* [staticfile](http://www.staticfile.org/)
-* [bootcss cdn](http://open.bootcss.com/)
-* [cdnjs.cn](http://www.cdnjs.cn/)
-* [cdnjs](http://cdnjs.com/)
-* [upai](http://jscdn.upai.com/)
-* [Baidu cdn](http://cdn.code.baidu.com/)
-* [360 cdn](http://libs.useso.com/)
-* [jquery cdn](http://code.jquery.com/)
-* [lib.sinaapp](http://lib.sinaapp.com/)
-
-### CSS
-
-* [css-triangle-generator](http://apps.eky.hk/css-triangle-generator/zh-hant)
-* [css3lib](http://css3lib.alloyteam.com/)
-* [csszengarden](http://www.csszengarden.com/)
-* [css3Preview](http://www.css88.com/tool/css3Preview/)
-* [CSS Gradient Generator](http://www.colorzilla.com/gradient-editor/)
-* [prefixmycss](http://prefixmycss.com/)
-* [cssBeutify](http://tool.lu/css/)
-
-### Image compression
-
-* [punypng](http://www.punypng.com/)
-* [webresizer](http://www.webresizer.com/resizer/)
-* [TinyPNG](https://tinypng.com)
-* [smushit](http://www.smushit.com/ysmush.it/)
-* [AlloyPhoto](http://alloyteam.github.io/AlloyPhoto/)
-
-### JavaScript
-
-* [jsBeutify](http://tool.lu/js/)
-* [jsbeautifier](http://jsbeautifier.org/)
-* [jsfiddle](http://jsfiddle.net/)
-* [jsbin](http://jsbin.com/)
-
-### Pagespeed
-
-* [PageSpeed](https://chrome.google.com/webstore/detail/gplegfbjlmmehdoakndmohflojccocli)
-* [YSlow](https://addons.mozilla.org/zh-cn/firefox/addon/yslow/)
-* [Alibench](http://alibench.com/)
-* [Webkaka](http://pagespeed.webkaka.com/)
+- **Feel free to fork. Appreciated if you keep the theme author link in the footer**
+- Expect Star if you like or fork this theme ;)
+- Any problem or requirement, just open an issue here and I will help you.
+- 如果有需要，可以更新一篇中文文档 ;)
 
 
-### Color
+## Document
 
-* [nipponcolors](http://nipponcolors.com/)
-* [flatuicolors](http://flatuicolors.com/)
-* [ios7colors](http://ios7colors.com/)
-* [Color Thief](http://lokeshdhakar.com/projects/color-thief/)
-* [color-hex](http://www.color-hex.com/)
-* [colors](https://github.com/mrmrs/colors)
-* [chuantongsecai](http://ylbook.com/cms/web/chuantongsecai/chuantongsecai.htm)
+#### Environment
 
-### Font
-
-* [Google Fonts](https://www.google.com/fonts)
-* [dafont](http://www.dafont.com/)
-* [youziku](http://www.youziku.com/)
-* [qiuziti](http://www.qiuziti.com/)
-* [fonts2u](http://www.fonts2u.com/index.html)
-* [webfonts](http://webfonts.fonts.com/)
-* [justfont](http://www.justfont.com/)
-* [iconpark](https://github.com/lvwzhen/iconpark)
-
-### API Doc
-
-* [Jquery API](http://jquery.bootcss.com/)
-* [OverAPI](http://overapi.com/)
-* [devdocs](http://devdocs.io/)
-* [oschina apidoc](http://tool.oschina.net/apidocs)
-
-### Git Host
-
-* [GitHub](https://github.com/)
-* [Bitbucket](https://bitbucket.org/)
-* [GitLab](https://about.gitlab.com/)
-* [GitCafe](https://gitcafe.com/)
-* [Git@OSC](http://git.oschina.net/)
+If you have jekyll installed, simply run `jekyll serve` in Command Line
+and preview the themes in your browser. You can use `jekyll serve --watch` to watch for changes in the source files as well.
 
 
+#### Get Started
+
+You can easily get started by modifying `_config.yml`:
+
+```
+# Site settings
+title: Hux Blog             # title of your website..
+description: .....          # ...
+
+# SNS settings      
+github_username: huxpro     # modify this account to yours
+weibo_username: huxpro      # and the links in footer will auto-updated.
+
+# Build settings
+# paginate: 10              # nums of posts in one page
+
+# Duoshuo settings          # Please set your own DuoShuo account.
+useDuoshuo: true            # Comment and Share
+useShare: true              # use Comment only. seeing the Share component is depend on Comment so we can NOT use share only.
+
+```
+
+There are more options you can check out in the [Jekyll - Official Site](http://jekyllrb.com/), or you can directly dive into code to find more.
 
 
+#### Write Posts
+
+Free free to checkout Markdown files in the `_posts/`, you will quickly realized how to post your articles with magic Markdown plus this theme:
+
+```
+---
+layout:     post
+title:      "Hello 2015"
+subtitle:   "Hello World, Hello Blog"
+date:       2015-01-29 12:00:00
+author:     "Hux"
+header-img: "img/post-bg-2015.jpg"
+tags:
+    - Life
+---
+
+```
+
+#### Advanced
+
+If you wanna change code yourself, a [Grunt](gruntjs.com) environment is also included. (Thanks to Clean Blog.)
+
+There are a number of tasks it performs like minification of the JavaScript, compiling of the LESS files, adding banners to keep the Apache 2.0 license intact, and watching for changes. Run the grunt default task by entering grunt into your command line which will build the files. You can use grunt watch if you are working on the JavaScript or the LESS.
+
+**Try to understand code in `_include/`, `_layouts/`, then you can modify Jekyll [Liquid](https://github.com/Shopify/liquid/wiki) template directly to do more creative customization.**
+
+#### SideBar
+
+![](http://huangxuan.me/img/blog-sidebar.jpg)
+
+Seeing more information may be necessary for you to display, from V1.1, a clean, gorgeous **SideBar** is added for you, which provide more area for displaying possible modules including *Featured Tags*, *Short About Me*, *Friends* etc. You can enable *(it is default enable)* this feature by simply config:
+
+```
+# Sidebar settings
+sidebar: true
+sidebar-feature-tags: true
+sidebar-about-description: "your description here"
+sidebar-avatar: /img/avatar-hux.jpg     # use absolute URL.
+```
+
+We default support *Featured Tags*, *Short About Me*, *Friends* these three modules and you can add your own. The Sidebar is naturally responsive and would be push to bottom in a small screen (<768px), the *Short About Me* would be also hidden in small screen.
+
+you can disable *Featured Tags* by removing `sidebar-featured-tags` and disable *Short About Me* by removing `sidebar-about-description` plus `sidebar-avatar`. More detail of *Friends* are talking below.
 
 
+#### Friends
 
+Friends is very common feature of blog seeing the SEO, so I add it in V1.1 release to help that. One of the awesome point of *Friends* is that it can live without enable sidebar. The *Friends* would display in the bottom auto when `sidebar` set to false.
+
+
+You can just add your friends information in `_config.yml` with a familiar JSON syntax and everything is done, very easy:
+
+```
+# Friends
+friends: [
+    {
+        title: "Foo Blog",
+        href: "http://foo.github.io/"
+    },
+    {
+        title: "Bar Blog",
+        href: "http://bar.github.io"
+    }
+]
+```
+
+
+## Thanks
+
+This theme is forked from [IronSummitMedia/startbootstrap-clean-blog-jekyll](https://github.com/IronSummitMedia/startbootstrap-clean-blog-jekyll)  
+Thanks Jekyll and Github Pages!
