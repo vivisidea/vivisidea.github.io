@@ -1,11 +1,66 @@
 # Site settings
-title: "vivi's IDEA" # Your Title
-tagline: '个人技术记录' # A brief tagline for your site
-sidebar_image: /images/cover.jpg
-url: http://www.vivisidea.info
+title: vivi's IDEA
+header-img: img/post-bg-unix-linux.jpg
+email: 
+description: "技术记录"
+baseurl: ""
+url: "http://www.lib64.pw"
+
+
+# SNS settings
+RSS: false
+weibo_username:     
+zhihu_username:     
+github_username:    
+#twitter_username:  
+facebook_username:  
+
 
 # Build settings
-markdown: redcarpet
 highlighter: pygments
-baseurl: # the subpath of your site, e.g. /blog/
-paginate: 5
+permalink: pretty
+paginate: 20
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+anchorjs: true      # if you want to customize anchor. check out line:129 of `post.html`
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
+markdown: kramdown
+kramdown:
+  input: GFM        # use Github Flavored Markdown !important
+
+
+# Duoshuo settings
+# please set your own DuoShuo account in `post.html` and `about.html`
+useDuoshuo: false    # use both Comment and Share
+useShare: false      # use Comment only. seeing the Share component is depend on Comment so we can NOT use share only.
+
+
+# Todo: Analysis settings
+# Please set your own analysis account in `head.html`(Baidu) and `default.html`(QQ)
+useBaiduAnalysis: false
+useTencentAnalysis: false
+useGoogleAnalysis: false     # TODO
+
+
+# Sidebar settings
+sidebar: true
+sidebar-featured-tags: true
+sidebar-about-description: "一些技术记录"
+sidebar-avatar: /img/avatar.jpg     # use absolute URL.
+
+# Friends
+# friends: [
+#     {
+#         title: "天镶的博客",
+#         href: "http://lingyu.wang/"
+#     },{
+#         title: "Luke的自留地",
+#         href: "http://hmqk1995.github.io"
+#     },{
+#         title: "SmdCn's Blog",
+#         href: "http://blog.smdcn.net"
+#     }
+# ]

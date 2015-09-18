@@ -1,75 +1,40 @@
 ---
-layout: default
-title: 个人技术记录
+layout: page
+description: "记录想法"
 ---
-<header id="home-header" style="background-image: url({{ site.baseurl }}{{ site.sidebar_image }});">
-  <div class="container">
-    <h1>{{ site.title }}</h1>
-    <ul class="meta">
-      <li>
-        <span>
-          {{ site.tagline }}
-        </span>
-      </li>
-  </div>
-</header>
-<article>
-  <div class="container">
-    <ul class="posts">
-    	<!-- 遍历分页后的文章 -->
-		{% for post in paginator.posts %}
-		 	<li>
-	          <h2><a href="{{ site.baseurl }}{{ post.url }}"># {{ post.title }}</a></h2>
-	          <span class="meta">
-	            {{ post.date | date_to_string }}
-	          </span>
-	          {{ post.excerpt }}
-	        </li>
-		{% endfor %}
-    </ul>
-    <div id="post-pagination" class="pagination">
-		  {% if paginator.previous_page %}
-		    <p class="previous">
-		      {% if paginator.previous_page == 1 %}
-		        <a href="/">Previous</a>
-		      {% else %}
-		        <a href="{{ paginator.previous_page_path }}">Previous</a>
-		      {% endif %}
-		    </p>
-		  {% else %}
-		    <p class="previous disabled">
-		      <span>Previous</span>
-		    </p>
-		  {% endif %}
-		
-		  <ul class="pages">
-		    <li class="page">
-		      {% if paginator.page == 1 %}
-		        <span class="current-page">1</span>
-		      {% else %}
-		        <a href="/">1</a>
-		      {% endif %}
-		    </li> 
-		
-		    {% for count in (2..paginator.total_pages) %}
-		      <li class="page">
-		        {% if count == paginator.page %}
-		          <span class="current-page">{{ count }}</span>
-		        {% else %}
-		          <a href="/page{{ count }}">{{ count }}</a>
-		        {% endif %}
-		      </li>
-		    {% endfor %}
-		  </ul>
-		  {% if paginator.next_page %}
-		    <p class="next">
-		      <a href="{{ paginator.next_page_path }}">Next</a>
-		    </p>
-		  {% else %}
-		    <p class="next disabled">
-		      <span>Next</span>
-		    </p>
-		  {% endif %}
-	</div>
-  </div>
-</article>
+
+{% for post in paginator.posts %}
+<div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">            {{ post.title }}
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+        <div class="post-content-preview">
+            {{ post.content | strip_html | truncate:200 }}
+        </div>
+    </a>
+    <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
+        
+</div>
+<hr>
+{% endfor %}
+
+<!-- Pager -->
+{% if paginator.total_pages > 1 %}
+<ul class="pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    </li>
+    {% endif %}
+    {% if paginator.next_page %}
+    <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}
