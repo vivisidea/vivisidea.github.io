@@ -34,14 +34,14 @@ how to run multiple tomcat instance on a single server.
 - /etc/$NAME
 - /etc/init.d/$NAME tomcat的启动/停止脚本，可以作为一个模板实现multiple instance的脚本
 
-打开文件数量限制修改
+打开文件数量限制修改 
 
-```
+{% highlight bash %}
 修改 /etc/security/limits.conf（貌似要重启还是重新login）
 vivi            soft    nofile          200000
 vivi            hard    nofile          200000
 ulimit -n "$MAX_FILEDESCRIPTORS" 注意这个值只能改成&lt;=limits.conf里面设置的值
-```
+{% endhighlight %}
 
 tomcat端口说明
 Here is a list of the ports to change:

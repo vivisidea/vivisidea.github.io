@@ -52,7 +52,7 @@ nc(netcat)
 
 传输大文件或者文件夹，可以配合tar打包压缩传输
 
-* 目标服务器：nc -l 12345 -q 1 | tar -xzvf -
-* 发送服务器：tar -czvf - /path/to/source/folder | nc remote-server 12345
+* 目标服务器：nc -l 12345 -q 1 \| tar -xzvf -
+* 发送服务器：tar -czvf - /path/to/source/folder \| nc remote-server 12345
 
 另外说下如果tar要解压到非当前目录，那么参数是 `-C /path/to/dest/folder/` 而不是想当然的 `tar -xzvpf /path` 这个形式其实是提取压缩包指定的一个文件。

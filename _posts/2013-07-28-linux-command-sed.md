@@ -31,8 +31,7 @@ sed -r '/\s*&lt;[^&gt;]*&gt;\s*/ /g' html.txt 将html标签替换成空格，测
 {% endhighlight %}
 
 用法总结（不总结一下每次都要google命令。。）
-
-```
+{% highlight bash %}
 s 命令，替换匹配
 
 sed '[line-address1][,line-address2]s/pattern/replacement/[index|g]' input.txt
@@ -57,11 +56,8 @@ sed -e '1,3s/my/your/g' -e '3,$/this/that/g' input.txt
 
 命令嵌套打包
 sed '1,${/this/d; s/^ *//g}' input.txt 如果匹配到this那么删除，否则删除行开头空格
-```
+{% endhighlight %}
 
 参考资料
 
-- [简明sed教程][1] 后面的hold space之类的概念瞄了一眼觉得应该用不着，先放着
-
-
- [1]: http://coolshell.cn/articles/9104.html
+- [简明sed教程](http://coolshell.cn/articles/9104.html) 后面的hold space之类的概念瞄了一眼觉得应该用不着，先放着

@@ -23,33 +23,28 @@ clone chnroute项目（也可以直接找生成好的路由表，通常几个月
 
 ## 安装pptp-linux
 
-```
-sudo apt-get install pptp-linux
-sudo pptpsetup --create ppp0 --client --server $server --username $username --password $password --encrypt --start
-sudo poff ppp0 断开vpn连接
-sudo pon ppp0 启用vpn连接
-```
+	sudo pptpsetup --create ppp0 --client --server $server --username $username --password $password --encrypt --start
+	sudo poff ppp0 断开vpn连接
+	sudo pon ppp0 启用vpn连接
 
 ## 配置路由规则
 
 pptp手动启动之后并不会添加默认路由，需要手动添加一下（可以自行加到ip-up.d/ip-down.d文件里去实现自动化）
 
-```
-sudo ip route del default
-sudo ip route add default dev ppp0
+	sudo ip route del default
+	sudo ip route add default dev ppp0
 
-vivi@ubuntu-ssd:~$ route -n | more
-Kernel IP routing table
-Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-0.0.0.0         0.0.0.0         0.0.0.0         U     0      0        0 ppp0
-1.0.1.0         192.168.1.1     255.255.255.0   UG    0      0        0 eth1
-1.0.2.0         192.168.1.1     255.255.254.0   UG    0      0        0 eth1
-1.0.8.0         192.168.1.1     255.255.248.0   UG    0      0        0 eth1
-1.0.32.0        192.168.1.1     255.255.224.0   UG    0      0        0 eth1
-1.1.0.0         192.168.1.1     255.255.255.0   UG    0      0        0 eth1
-1.1.2.0         192.168.1.1     255.255.254.0   UG    0      0        0 eth1
-...
-```
+	vivi@ubuntu-ssd:~$ route -n | more
+	Kernel IP routing table
+	Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+	0.0.0.0         0.0.0.0         0.0.0.0         U     0      0        0 ppp0
+	1.0.1.0         192.168.1.1     255.255.255.0   UG    0      0        0 eth1
+	1.0.2.0         192.168.1.1     255.255.254.0   UG    0      0        0 eth1
+	1.0.8.0         192.168.1.1     255.255.248.0   UG    0      0        0 eth1
+	1.0.32.0        192.168.1.1     255.255.224.0   UG    0      0        0 eth1
+	1.1.0.0         192.168.1.1     255.255.255.0   UG    0      0        0 eth1
+	1.1.2.0         192.168.1.1     255.255.254.0   UG    0      0        0 eth1
+	...
 
 ## 修改dns /etc/resolv.conf
 

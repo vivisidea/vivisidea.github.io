@@ -1,24 +1,22 @@
 ---
-layout: page
+layout: default
 description: "记录想法"
 ---
 {% include header.html %}
-{% for post in site.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title"> {{ post.title }}</h2>
-    </a>
-    {% if post.subtitle %}
-    <h3 class="post-subtitle">
-        {{ post.subtitle }}
-    </h3>
-    {% endif %}
-    <div class="post-content-preview">
-        {{ post.content | strip_html | truncate:200 }}
+<div class="book font-size-2 font-family-1 with-summary">
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                    <section class="normal">
+                        <h1>DevNotes</h1>
+                        {% for post in site.posts %}
+                        	<p> <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }} </a>{{ post.date | date: "%Y-%m-%d" }}</p>
+                        {% endfor %}
+                    </section>
+                </div>
+            </div>
+        </div>
     </div>
-    <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
 </div>
-<hr>
-{% endfor %}
-
 {% include footer.html %}
