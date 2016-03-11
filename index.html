@@ -1,22 +1,24 @@
 ---
 layout: default
-description: "记录想法"
 ---
-{% include header.html %}
 <div class="book font-size-2 font-family-1 with-summary">
     <div class="book-body">
         <div class="body-inner">
             <div class="page-wrapper" tabindex="-1">
                 <div class="page-inner">
                     <section class="normal">
-                        <h1>DevNotes</h1>
+                        <h1>DevNotes - 开发笔记</h1>
                         {% for post in site.posts %}
-                        	<p> <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }} </a>{{ post.date | date: "%Y-%m-%d" }}</p>
+                        	<p class="post-list"> <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }} </a><span class="date">{{ post.date | date: "%Y-%m-%d" }}</span></p>
                         {% endfor %}
+                        <footer>
+                            <div>
+                                created by <a href="https://jekyllrb.com/" target="_blank">jekyll</a>, github pages@<a href="https://github.com/vivisidea/vivisidea.github.io">GitHub</a>
+                            </div>
+                        </footer>
                     </section>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{% include footer.html %}

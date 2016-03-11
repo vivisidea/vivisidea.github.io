@@ -2,9 +2,6 @@
 title: linux命令-sed(stream editor)
 author: vivi
 layout: post
-permalink: /posts/334.html
-categories:
-  - 技术记录
 tags:
   - linux shell sed
 ---

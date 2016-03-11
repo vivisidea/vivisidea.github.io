@@ -2,9 +2,6 @@
 title: 高性能MySQL笔记-分区表
 author: vivi
 layout: post
-permalink: /posts/291.html
-categories:
-  - 技术记录
 tags:
   - mysql
 ---

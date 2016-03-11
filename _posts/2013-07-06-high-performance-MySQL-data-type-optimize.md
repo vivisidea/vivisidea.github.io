@@ -2,9 +2,6 @@
 title: 高性能MySQL笔记-数据类型优化
 author: vivi
 layout: post
-permalink: /posts/316.html
-categories:
-  - 技术记录
 tags:
   - mysql
 ---

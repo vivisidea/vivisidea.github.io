@@ -2,9 +2,6 @@
 title: ubuntu下手动连接pptp
 author: vivi
 layout: post
-permalink: /posts/362.html
-categories:
-  - 技术记录
 tags:
   - linux
   - pptp

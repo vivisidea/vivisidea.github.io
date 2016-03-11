@@ -14,7 +14,8 @@ layout: default
                         <h1>{{ page.title }}</h1>
                         {{ content }}
 
-                        <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                        <span class="meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
+                        <footer><div>created by <a href="https://jekyllrb.com/" target="_blank">jekyll</a>, github pages@<a href="https://github.com/vivisidea/vivisidea.github.io">GitHub</a><div></footer>
                     </section>
                 </div>
             </div>

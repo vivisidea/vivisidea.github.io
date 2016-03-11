@@ -3413,3 +3413,39 @@ body {
     font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px
 }
+
+html.han-la hanla:after {
+    content: " ";
+    display: inline;
+    font-family: Arial;
+    font-size: 0.89em;
+}
+
+html.han-la code hanla,
+html.han-la pre hanla,
+html.han-la kbd hanla,
+html.han-la samp hanla {
+    display: none;
+}
+
+html.han-la ol > hanla,
+html.han-la ul > hanla {
+    display: none;
+}
+
+.post-list{
+    border-bottom:1px dashed #eee;
+}
+.post-list .date{
+    font-size:0.9em;
+    float: right;
+}
+footer{
+    color:#767676;
+    font-size:0.8em;
+    margin-top:50px;
+}
+footer>div{
+    margin:0px auto;
+    max-width: 250px;
+}

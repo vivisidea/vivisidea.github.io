@@ -2,9 +2,6 @@
 title: 高性能MySQL笔记-在线修改表结构
 author: vivi
 layout: post
-permalink: /posts/309.html
-categories:
-  - 技术记录
 tags:
   - mysql
 ---

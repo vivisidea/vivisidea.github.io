@@ -2,9 +2,6 @@
 title: JavaScript中的正则表达式操作
 author: vivi
 layout: post
-permalink: /posts/141.html
-categories:
-  - 技术记录
 tags:
   - JavaScript
   - RegExp

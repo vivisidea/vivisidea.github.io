@@ -2,9 +2,6 @@
 title: linux命令-nc(netcat)
 author: vivi
 layout: post
-permalink: /posts/321.html
-categories:
-  - 技术记录
 tags:
   - command
   - linux

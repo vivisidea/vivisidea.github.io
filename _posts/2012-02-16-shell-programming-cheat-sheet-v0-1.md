@@ -2,30 +2,27 @@
 title: shell programming cheat sheet V0.1
 author: vivi
 layout: post
-permalink: /posts/128.html
-categories:
-  - 技术记录
 tags:
   - linux
   - shell
 ---
 shell programming cheat sheet V0.1
 
-1. 数值计算
+## 数值计算
 {% highlight bash %}
 a=0; (( a = $a +1 )); echo $a
 {% endhighlight %}
 
 
-2. 循环
+## 循环
 {% highlight bash %}
 for f in `ls`; do echo $f; done
-for (( i=1; $i&lt;10; i++)); do echo $i ; sleep 1; done # 好亲切的for循环。。
+for (( i=1; $i < 10; i++)); do echo $i ; sleep 1; done # 好亲切的for循环。。
 a=0; while [ $a -lt 10 ]; do echo -n "$a "; (( a = $a+1 )); sleep 1; done ; echo;
-a=0; while (( $a &lt; 10 )); do echo -n "$a "; (( a = $a+1 )); sleep 1; done ; echo;
+a=0; while (( $a  <  10 )); do echo -n "$a "; (( a = $a+1 )); sleep 1; done ; echo;
 {% endhighlight %}
 
-3. 判断
+## 判断
 {% highlight bash %}
 if [ -d /usr/local/bin ] ; then echo "exists."; else echo "not exists."; fi
 [ -d /usr/local/bin ] && echo "exists"       # if .. then
@@ -40,17 +37,17 @@ str1 = str2, str1 != str2, -n (str not null, length&gt;0), -z (str is null, leng
 cond1 -a cond2, cond1 -o cond2, ! cond1
 {% endhighlight %}
 
-4. sed
+## sed
 {% highlight bash %}
-sed 's/one/two/g' &lt; in.file.txt &gt; out.file.txt
-sed -r 's/[0-9]{3,}//g' &lt; in.file.txt  &lt;-- 注1
-sed 's:old:new:g' &lt; in.file.text &gt; out.file.txt &lt;-- 注2
-sed -r 's/[0-9]{3,}/(&)/g' &lt; sed.txt
-sed -r 's/([0-9]+)\s+([a-z]+)/\2 \1/g' &lt; sed.txt &lt;-- 注3
-sed -n -r '/\S+/p' &lt; sed.txt &lt;-- 注4
-sed -r '/^$/d' &lt; sed.txt
-sed -n -r 's/([0-9]+)\s+([a-z]+)/\2 \1/gpw test.txt' &lt; sed.txt &lt;-- 注5
-sed -r -e 's/([0-9]+)\s+([a-z]+)/\2 \1/g' -e '/^$/d' &lt; sed.txt  &lt;--注6
+sed 's/one/two/g'  <  in.file.txt &gt; out.file.txt
+sed -r 's/[0-9]{3,}//g'  <  in.file.txt   < -- 注1
+sed 's:old:new:g'  <  in.file.text &gt; out.file.txt  < -- 注2
+sed -r 's/[0-9]{3,}/(&)/g'  <  sed.txt
+sed -r 's/([0-9]+)\s+([a-z]+)/\2 \1/g'  <  sed.txt  < -- 注3
+sed -n -r '/\S+/p'  <  sed.txt  < -- 注4
+sed -r '/^$/d'  <  sed.txt
+sed -n -r 's/([0-9]+)\s+([a-z]+)/\2 \1/gpw test.txt'  <  sed.txt  < -- 注5
+sed -r -e 's/([0-9]+)\s+([a-z]+)/\2 \1/g' -e '/^$/d'  <  sed.txt   < --注6
 sed -i '1i\line to insert' input_file # insert a line at the beginning of the file
 sed -i '1 d' input_file # delete first line
 # 注1: -r参数启用extended regular expression
@@ -61,7 +58,7 @@ sed -i '1 d' input_file # delete first line
 # 注6: 多条sed指令用-e分开
 {% endhighlight %}
 
-5. function
+## function
 {% highlight bash %}
 #!/bin/bash
 function logger(){
@@ -72,7 +69,7 @@ function logger(){
 logger "this is output for test"
 {% endhighlight %}
 
-6. the GAME ...
+## the GAME ...
 {% highlight bash %}
 #!/bin/bash
 # generate a random integer and guess it
@@ -93,7 +90,7 @@ while true; do
 done
 {% endhighlight %}
 
-7. 处理输入参数
+## 处理输入参数
 {% highlight bash %}
 #!/bin/bash
 SEC=0
@@ -119,10 +116,10 @@ echo "$HOUR:$MIN:$SEC"
 {% highlight bash %}
 while read LINE; do
   echo "$LINE" &gt;&gt; $OUTFILE # do something to the line
-done &lt; $INFILE
+done  <  $INFILE
 {% endhighlight %}
 
-9. 访问数组
+## 访问数组
 {% highlight bash %}
 #!/bin/bash
 # vivi@2012-02-17_00:03:04
@@ -137,18 +134,4 @@ for char in {a..z} {A..Z} {0..9}; do # {}展开，shell好像没用全大写做�
   (( count = $count + 1 ))
 done
 echo $line
-{% endhighlight %}
-
-10. find的用法
-{% highlight bash %}
-通常我会这么用
-for f in $(find . -type f -name *.txt); do
-    echo $f;
-done
-但其实可以这么用
-find . -type f -name *.txt -exec echo '{}' \;
-find . -type f -name *.txt -exec grep --color=auto "abcd" '{}' +
-find . -type f -name *.txt | xargs echo
-# '{}' 会被替换成符合条件的文件名
-# \;一条条结果分别传给command处理; +是将结果拼成一个字符串后一起传给command处理
 {% endhighlight %}

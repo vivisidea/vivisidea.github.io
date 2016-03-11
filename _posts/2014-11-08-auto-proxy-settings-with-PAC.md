@@ -2,9 +2,6 @@
 title: PAC自动代理配置文件
 author: vivi
 layout: post
-permalink: /posts/372.html
-categories:
-  - 未分类
 ---
 PAC = Proxy Automatic Configuration 用来自动配置代理的，本来一直在用chrome的switchy插件，最近看了眼PAC，感觉比插件还简单一点，对我个人来说，平时需要翻的网站相对比较固定，使用的代理软件也很固定，相当于是“一次配置，到处运行”了
 

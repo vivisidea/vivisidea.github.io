@@ -2,8 +2,6 @@
 title: Java 日志框架
 author: vivi
 layout: post
-categories:
-  - 技术记录
 tags:
   - Java
 ---
@@ -12,31 +10,31 @@ Java 日志框架整理
 Java Logging
 
 日志框架对于 Java 程序员来说肯定不会陌生，而且第一印象估计都是 log4j，由于其配置&用法都相对简单，所以很容易忽略掉背后的日志框架，大部分的日志打印代码类似这样
+{%highlight java%}
+import org.apache.log4j.Logger;
 
-	import org.apache.log4j.Logger;
+public class LoggingTest {
+	private static final Logger logger = Logger.getLogger(LoggingTest.class);
 
-	public class LoggingTest {
-		private static final Logger logger = Logger.getLogger(LoggingTest.class);
-
-		@Test
-		public void test() {
-		    logger.info("this is logging message");
-		}
+	@Test
+	public void test() {
+	    logger.info("this is logging message");
 	}
-
+}
+{%endhighlight%}
 这么写有个不好的地方是，日志框架从此就绑定了 log4j，如果要使用别的日志框架，必须大面积的修改代码。更优雅的方案是结合 commons-logging 和 log4j，面向 commons-logging API 编程
+{%highlight java%}
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
-    import org.apache.commons.logging.Log;
-    import org.apache.commons.logging.LogFactory;
-
-    public class SkeletonTest {
-        private static Log log = LogFactory.getLog(SkeletonTest.class);
-        @Test
-        public void test(){
-            log.info("this is log from commons-loggin API");
-        }
+public class SkeletonTest {
+    private static Log log = LogFactory.getLog(SkeletonTest.class);
+    @Test
+    public void test(){
+        log.info("this is log from commons-loggin API");
     }
-
+}
+{%endhighlight%}
 我们测试发现这段代码的效果和上面是一样的，这是因为 commons-logging 框架设计了一种动态查找日志框架实现的机制，我们想要使用 log4j 的实现，只需要把 log4j 的 jar 包放在 classpath 下即可
 
 首先，动态查找 `LogFactory` 实现类

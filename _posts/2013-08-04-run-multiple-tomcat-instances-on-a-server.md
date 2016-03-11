@@ -2,9 +2,6 @@
 title: 一台服务器运行多个tomcat实例
 author: vivi
 layout: post
-permalink: /posts/340.html
-categories:
-  - 技术记录
 tags:
   - linux
   - tomcat

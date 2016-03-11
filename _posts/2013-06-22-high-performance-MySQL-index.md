@@ -2,9 +2,6 @@
 title: 高性能MySQL笔记-索引
 author: vivi
 layout: post
-permalink: /posts/277.html
-categories:
-  - 技术记录
 tags:
   - mysql
 ---
