@@ -48,15 +48,15 @@ Successfully altered `test`.`t2`.
 
 原理大致如下
 
-1. 创建一个新的表
-2. 针对原表创建触发器，原表的更新操作都会被触发器处理更新到新表中
-3. 复制原始表的数据到新表（复制过程是分批的，默认 `chunk-size=1000` ）
-4. 新表替换旧表
+- 创建一个新的表
+- 针对原表创建触发器，原表的更新操作都会被触发器处理更新到新表中
+- 复制原始表的数据到新表（复制过程是分批的，默认 `chunk-size=1000` ）
+- 新表替换旧表
 
 小细节
 
-1. 实施改表操作的帐号需要PROCESS权限和REPLICATION SLAVE权限（一般由DBA帐号完成）
-2. 如果表有外键，那么需要特殊处理（参见 `alter-foreign-keys-method` 选项）
-3. 原表不能有触发器
+- 实施改表操作的帐号需要PROCESS权限和REPLICATION SLAVE权限（一般由DBA帐号完成）
+- 如果表有外键，那么需要特殊处理（参见 `alter-foreign-keys-method` 选项）
+- 原表不能有触发器
 
 [详细参数说明](http://www.percona.com/doc/percona-toolkit/2.2/pt-online-schema-change.html)

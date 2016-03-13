@@ -9,18 +9,17 @@ tags:
 
 基本原则
 
-1. 尽量使用可以正确存储数据的最小数据类型。
-2. 尽量使用简单的数据类型，能用整型就不要用字符串，用内建日期类型保存日期。
-3. 尽量避免使用NULL，可以设定默认值，例如字符串可设定为NOT NULL DEFAULT ;
+- 尽量使用可以正确存储数据的最小数据类型。
+- 尽量使用简单的数据类型，能用整型就不要用字符串，用内建日期类型保存日期。
+- 尽量避免使用NULL，可以设定默认值，例如字符串可设定为NOT NULL DEFAULT '';
+    - NULL的存在使索引，值比较都更为复杂。特别是如果计划在列上建索引，更应该避免允许NULL值。
+    - 例外：InnoDB使用bit保存NULL值，对于稀疏数据会有比较好的空间效率。
 
-NULL的存在使索引，值比较都更为复杂。特别是如果计划在列上建索引，更应该避免允许NULL值。
-例外：InnoDB使用bit保存NULL值，对于稀疏数据会有比较好的空间效率。
-
-第一步先选定大的数据类型：数字，字符串，时间等
-第二步选择具体类型，例如DATETIME和TIMESTAMP都可以存储相同类型的数据，时间和日期，精确到秒。但是TIMESTAMP只使用DATETIME一半的存储空间，并且会根据时区变化。
+- 选定大的数据类型：数字，字符串，时间等
+- 选择具体类型，例如DATETIME和TIMESTAMP都可以存储相同类型的数据，时间和日期，精确到秒。但是TIMESTAMP只使用DATETIME一半的存储空间，并且会根据时区变化。
 
 ## 整数类型
-TINYINT(8)， SMALLINT(16), MEDIUMINT(24), INT(32), BIGINT(64)，可存储的值范围从-2^(N-1) - 2^(N-1) -1
+`TINYINT(8)`， `SMALLINT(16)`, `MEDIUMINT(24)`, `INT(32)`, `BIGINT(64)`，可存储的值范围从`-2^(N-1) - 2^(N-1) -1`
 整数类型有可选的UNSIGNED属性，表示不允许负值，可以将正数的上限提高一倍，例如TINYINT的范围是-128 127，TINYINT UNSIGNED的存储范围是0-255。
 
 MySQL可以为整数类型指定宽度，例如INT(11)，对于大多数应用这是没有意义的，它不会改变可存储值的范围，只是规定了一些工具（例如MySQL命令行客户端）用来显示字符的个数，对于存储和计算值来说，INT(1)和INT(20)是相同的。
@@ -32,7 +31,9 @@ DECIMAL类型可以用来存储比BIGINT还大的整数，也可以用来精确�
 
 ## 字符串类型
 VARCHAR类型和CHAR类型（以下说明基于InnoDB引擎，不同的数据库引擎可能有不同的实现方式）
+
 VARCHAR用于存储可变长度字符串，使用1个或2个额外的字节记录字符串的长度，适用于字符串列最大长度比平均长度大很多的情况。
+
 CHAR类型是定长的，MySQL总是根据定义的字符串长度分配足够的空间，存储CHAR值时，MySQL会删除所有末尾的空格，CHAR适合存储比较短的字符串，或者所有值都接近同一个长度，例如MD5值。
 
 与CHAR和VARCHAR类似的类型还有BINARY和VARBINARY类型，它们存储的是二进制字符串，二进制字符串跟常规字符串非常相似，但二进制字符串存储的是字节码而不是字符。二进制字符串没有排序规则或者字符集。
@@ -40,24 +41,32 @@ CHAR类型是定长的，MySQL总是根据定义的字符串长度分配足够�
 VARCHAR(5)和VARCHAR(200)的区别：它们在存储字符串`hello`时空间开销是一样的，但是更长的列会消耗更多的内存，MySQL通常会分配固定大小的内存块来保存内部值，所以，最好的策略是只分配真正需要的空间。
 
 ## 其他字符串类型
-TINYTEXT, SMALLTEXT, TEXT, MEDIUMTEXT, LONGTEXT 对应的二进制类型 TINYBLOB, SMALLBLOB, BLOB, MEDIUMBLOB, LONGBLOB
+
+- TINYTEXT --> TINYBLOB
+- SMALLTEXT --> SMALLBLOB
+- TEXT --> BLOB
+- MEDIUMTEXT --> MEDIUMBLOB
+- LONGTEXT --> LONGBLOB
+
 BLOB和TEXT之间的区别在于BLOB存储的是二进制数据，没有排序规则或字符集。
 
 ## 使用ENUM类型代替字符串类型
 枚举列可以把一些不重复的字符串存储成一个预定义的集合，实际存储的时候会使用整数
-
+{% highlight sql %}
 CREATE TABLE  enum_test(
     e ENUM('fish', 'dog', 'apple') NOT NULL
 );
 INSERT INTO enum_test(e) VALUES('fish'), ('dog'), ('apple');
-
+{% endhighlight %}
 
 ## 时间和日期
 DATETIME 能保存大范围的值，从1001年到9999年，精度为秒。使用8个字节的存储空间。
+
 TIMESTAMP 保存从1970-01-01 00:00:00以来的秒数，和UNIX时间戳相同，TIMESTAMP只使用4个字节的存储空间，只能表示从1970年到2038年
 
-FROM_UNIXTIME()将Unix时间戳转换为日期。
-UNIX_TIMESTAMP()函数将日期转换为Unix时间戳。
+`FROM_UNIXTIME()`将Unix时间戳转换为日期。
+
+`UNIX_TIMESTAMP()`函数将日期转换为Unix时间戳。
 
 {% highlight sql %}
 -- 纯测试的语句一条

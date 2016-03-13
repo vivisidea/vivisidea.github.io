@@ -76,23 +76,21 @@ alert(resolved_host);
 用浏览器调试
 
 - IE浏览器：直接可以看到alert输出（我测试了下有些诡异，具体表现是刷几次之后不弹出alert了，IE用的不多就不折腾了）
-- chrome浏览器：chrome://net-internals/#events
-- firefox浏览器：使用Error Console插件，在“消息”里可以看到pac的调试输出
+- chrome浏览器：`chrome://net-internals/#events`
+- firefox浏览器：使用`Error Console`插件，在“消息”里可以看到pac的调试输出
 
 
 用工具调试
 
-- https://code.google.com/p/pactester/ 用于测试PAC文件的perl脚本，似乎已经不再维护了
-- https://code.google.com/p/pacparser/ PAC解析工具（其实可以基于这个工具做一个在线测试PAC的页面）
-- windows也有工具可以用，下载地址https://code.google.com/p/pacparser/downloads/list
-    - pactester.exe -p E:\developer\www\gfw-proxy.pac -u http://facebook.com
-    - SOCKS5 127.0.0.1:1080; SOCKS 127.0.0.1:1080; DIRECT;
+- `https://code.google.com/p/pactester/` 用于测试PAC文件的perl脚本，似乎已经不再维护了
+- `https://code.google.com/p/pacparser/` PAC解析工具（其实可以基于这个工具做一个在线测试PAC的页面）
+- windows也有工具可以用，下载地址`https://code.google.com/p/pacparser/downloads/list`
+    - `pactester.exe -p E:\developer\www\gfw-proxy.pac -u http://facebook.com`
+    - `SOCKS5 127.0.0.1:1080; SOCKS 127.0.0.1:1080; DIRECT;`
 
 
 ## 参考资料
+- [专门介绍PAC文件的网站](http://findproxyforurl.com/)
+- [PAC文件支持的函数](http://findproxyforurl.com/pac-functions/)
+- [参考proxy.pac](https://github.com/clowwindy/gfwlist2pac/blob/master/test/proxy.pac)
 
-<a href="http://findproxyforurl.com/" target="_blank">http://findproxyforurl.com/</a> 专门介绍PAC文件的网站  
-<a href="http://findproxyforurl.com/pac-functions/" target="_blank">http://findproxyforurl.com/pac-functions/</a> PAC文件支持的函数  
-<a href="https://github.com/clowwindy/gfwlist2pac/blob/master/test/proxy.pac" target="_blank">https://github.com/clowwindy/gfwlist2pac/blob/master/test/proxy.pac</a> 
-
-国内fq可以参考这份列表，从gfwlist翻译过来的（ps。项目owner是shadowsocks的作者。。）

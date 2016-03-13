@@ -19,7 +19,7 @@ var rex  = /[a-zA-Z]+/gim;
 // 1. exec(string)
 // 返回：返回单个匹配，和详细信息
 var pattern = /Java/g;
-var text = "JavaScript is mor fun than Java!";
+var text = "JavaScript is more fun than Java!";
 var result = pattern.exec(text);
 while(result != null){
     console.log("match "+result[0]+", start="+result.index+", end="+pattern.lastIndex);
