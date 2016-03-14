@@ -50,7 +50,7 @@ hello Scala
 - 可变参数`def sum(args:Int*) ={ var res = 0; for( i <- args ) res += i; res }` 参数实际是`Seq`类型
     - 这里参数虽然是`Seq`，`sum(x)`只有一个参数时，`x`必须是一个`Int`，如果要把`Seq`作为单个参数，需要写成`sum(1 to 10 : _*)`不要问我为什么。。
 - lazy变量，直到被使用时才会初始化：`lazy val content = scala.io.Source.fromFile("/tmp/file.txt").mkString`
-- 没有"checked exception"，异常处理语法如下
+- 没有`checked exception`，异常处理语法如下
 {%highlight scala%}
 try {
     process(new URL("http://horstmann.com/fred-tiny.gif"))
@@ -60,5 +60,59 @@ try {
 }
 {%endhighlight%}
 - `try { ... } catch { ... } finally { ... }`句式依旧可用
+- 函数定义可以嵌套
+{%highlight scala%}
+// 快速排序函数示例
+def sort(xs: Array[Int]) {
+    def swap(i: Int, j: Int) {
+        val t = xs(i); xs(i) = xs(j); xs(j) = t
+    }
+    def sort1(l: Int, r: Int) {
+        val pivot = xs((l + r) / 2)
+        var i = l; var j = r
+        while (i <= j) {
+            while (xs(i) < pivot) i += 1
+            while (xs(j) > pivot) j -= 1
+            if (i <= j) {
+                swap(i, j)
+                i += 1
+                j -= 1
+            }
+        }
+        if (l < j) sort1(l, j)
+        if (j < r) sort1(i, r)
+    }
+    sort1(0, xs.length - 1)
+}
+{%endhighlight%}
+- 函数式编程
+{%highlight scala%}
+def sort(xs: Array[Int]): Array[Int] = {
+    if (xs.length <= 1) xs
+    else {
+        val pivot = xs(xs.length / 2)
+        Array.concat(
+            sort(xs filter (pivot >)), // def >(x: Byte): Boolean 操作符号也是function
+            xs filter (pivot ==),
+            sort(xs filter (pivot <)))
+    }
+}
+{%endhighlight%}
+- 以函数作为参数的函数，或者返回函数的函数，被称为高阶函数(higher-order)
+- 可以给一个`expression`命名，`expression`的值只有到被使用时才会计算，可以认为是别名，效果实际上是替换`{expression}`
+    - `def h(i:Int):Int = { println("i = "+i); i }`
+    - `def s = 3 * h(5) // 这里并不会打印出 i = 5`，注意和`val/var s = 3 * h(5)`的区别
+
+## Pattern Matching
+{%highlight scala%}
+def fibonacci(in: Any): Int = in match {
+    case 0 => 0
+    case 1 => 1
+    case n: Int if n > 1 => fibonacci(n - 1) + fibonacci(n - 2)
+    case n: String => fibonacci(n.toInt)
+    case _ => 0
+}
+{%endhighlight%}
+
 
 
