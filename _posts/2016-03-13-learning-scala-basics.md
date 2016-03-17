@@ -22,7 +22,6 @@ hello Scala
 {%endhighlight%}
 
 ## 基本语法
-
 - `val`关键字定义常量， `var`关键字定义变量
 - 常量/变量定义时可以指定类型，类型在变量名后面： `val msg:String = "hello"`
 - 没有基本类型，一切都是对象， `1.toString`调用是合法的
@@ -42,7 +41,21 @@ hello Scala
 - 循环语法：`while( expr ) ...`， `for( i <- expr )`，没有`break/continue`语句。。有别的办法可以实现，蛋疼
 	- 高级循环1， `for( i <- 1 to 10 if i % 2 == 0 ) println(i)`
 	- 高级循环2, `val col = for( i <- 1 to 10 if i % 2 == 0 ) yield i`， `yield`语句收集符合条件的元素生成`Vector`
-	
+
+## 数组
+- 初始化固定数组`val arr = new Array[Int](10) // 长度为10，初始化为0` 注意这里的`new`
+- 使用初始值初始化数组`val arr = Array(1,2,3,4) // 长度为4，初始值为1,2,3,4`
+- 可变长度数组`val buffer = ArrayBuffer[Int]()// import scala.collection.mutable.ArrayBuffer` 注意这里又没有`new`
+    - `buffer += 1 // ArrayBuffer(1)`
+    - `buffer += (2,3,4) // ArrayBuffer(1,2,3,4)`
+    - `buffer ++= Array(5,6,7) // append collection using ++=`
+    - `buffer.toArray` 转换为固定数组
+- 数组下标遍历`for(i <- 0 until arr.length)...`
+- 反过来下标遍历`for(i <- (0 until arr.length).reverse)...`
+- 直接遍历元素`for(elem <- arr)...`
+- 数组变换`for(elem <- arr if elem ...) yield 2 * elem`
+
+
 ## 函数
 - 函数定义`def abs(x:Double) = if ( x > 0 ) x else -x`，非递归函数省略返回类型
 - 函数不需要`return`语句，直接用表达式作为返回
