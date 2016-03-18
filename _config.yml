@@ -1,5 +1,23 @@
-# Site settings
-title: devnotes
-description: "技术笔记"
-baseurl: ""
-url: "http://www.devnotes.in"
+permalink: date
+
+# Setup
+title: '开发笔记'
+tagline: 'DevNotes'
+description: 'Java程序员的开发笔记'
+url: 'http://www.devnotes.in'
+baseurl: ''
+paginate: 5
+
+# About/contact
+author: 
+name: '小强'
+url: 'http://www.devnotes.in'
+email: 
+
+#Customvars
+version: '1.0.0'
+
+highlighter: pygments
+lsi: false
+safe: true
+excerpt_separator: ""
