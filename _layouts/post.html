@@ -2,25 +2,26 @@
 layout: default
 ---
 
-<div class="book font-size-2 font-family-1 with-summary">
-    <div class="book-body">
-        <div class="body-inner">
-            <div class="book-header">
-                <a href="/" class="btn"><i class="fa fa-align-justify"></i></a>
-            </div>
-            <div class="page-wrapper" tabindex="-1">
-                <div class="page-inner">
-                    <section class="normal">
-                        <h1>{{ page.title }}</h1>
-                        {{ content }}
-
-                        <span class="meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
-                        <footer><div>created by <a href="https://jekyllrb.com/" target="_blank">jekyll</a>, github pages@<a href="https://github.com/vivisidea/vivisidea.github.io">GitHub</a>, twitter@<a href="https://twitter.com/_weiq">_weiq</a><div></footer>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <span class="post-date">{{ page.date | date_to_string }}</span>
+  {{ content }}
 </div>
 
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    {% for post in site.related_posts limit:3 %}
+      <li>
+        <h3>
+          <a href="{{ site.baseurl }}{{ post.url }}">
+            {{ post.title }}
+            <small>{{ post.date | date_to_string }}</small>
+          </a>
+        </h3>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
 
+{% include comments.html %}
