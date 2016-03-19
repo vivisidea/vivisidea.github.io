@@ -42,7 +42,7 @@ arr.filter(_%2==0)
 arr.reduceLeft((a:Int, b:Int) => a+b)
 // 直接写成
 arr.reduceLeft(_+_)
-// 就完事了。。。
+// 就完事了
 {%endhighlight%}
 
 ## 函数引用赋值
