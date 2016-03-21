@@ -42,20 +42,6 @@ hello Scala
 	- 高级循环1， `for( i <- 1 to 10 if i % 2 == 0 ) println(i)`
 	- 高级循环2, `val col = for( i <- 1 to 10 if i % 2 == 0 ) yield i`， `yield`语句收集符合条件的元素生成`Vector`
 
-## 数组
-- 初始化固定数组`val arr = new Array[Int](10) // 长度为10，初始化为0` 注意这里的`new`
-- 使用初始值初始化数组`val arr = Array(1,2,3,4) // 长度为4，初始值为1,2,3,4`
-- 可变长度数组`val buffer = ArrayBuffer[Int]()// import scala.collection.mutable.ArrayBuffer` 注意这里又没有`new`
-    - `buffer += 1 // ArrayBuffer(1)`
-    - `buffer += (2,3,4) // ArrayBuffer(1,2,3,4)`
-    - `buffer ++= Array(5,6,7) // append collection using ++=`
-    - `buffer.toArray` 转换为固定数组
-- 数组下标遍历`for(i <- 0 until arr.length)...`
-- 反过来下标遍历`for(i <- (0 until arr.length).reverse)...`
-- 直接遍历元素`for(elem <- arr)...`
-- 数组变换`for(elem <- arr if elem ...) yield 2 * elem`
-
-
 ## 函数
 - 函数定义`def abs(x:Double) = if ( x > 0 ) x else -x`，非递归函数省略返回类型
 - 函数不需要`return`语句，直接用表达式作为返回
@@ -115,6 +101,54 @@ def sort(xs: Array[Int]): Array[Int] = {
 - 可以给一个`expression`命名，`expression`的值只有到被使用时才会计算，可以认为是别名，效果实际上是替换`{expression}`
     - `def h(i:Int):Int = { println("i = "+i); i }`
     - `def s = 3 * h(5) // 这里并不会打印出 i = 5`，注意和`val/var s = 3 * h(5)`的区别
+- [by name vs by value](http://stackoverflow.com/questions/13337338/call-by-name-vs-call-by-value-in-scala-clarification-needed)
+
+书上也是说成`call-by-value/name`但其实理解下来应该描述成`pass-by-value/name`比较合适，看demo代码就清楚了
+{%highlight scala%}
+scala> def f(x:Int, y:Int) = { println("f is called!"); x+y }
+f: (x: Int, y: Int)Int
+
+scala> def by_value(x:Int) = x + x
+by_value: (x: Int)Int
+
+scala> def by_name(x: =>Int) = x + x // 注意冒号后面的空格，不可省略写成x:=>
+by_name: (x: => Int)Int
+
+scala> by_value(f(3,2)) // by_value好理解，就是先把函数调用的值计算出来，传给by_value
+f is called!
+res9: Int = 10
+
+scala> by_name(f(3,2)) // by_name我的理解就是把x全部替换成f(3,2)的效果，类似说x是f(3,2)的别名
+f is called!
+f is called!
+res10: Int = 10
+
+// 利用这个特性可以做一些神奇的事情，比如自己实现一个while循环
+scala> :paste
+// Entering paste mode (ctrl-D to finish)
+
+def _while(cond: =>Boolean)(f: =>Unit){
+  if(cond){
+    f
+    _while(cond)(f)
+  }
+}
+
+// Exiting paste mode, now interpreting.
+
+_while: (cond: => Boolean)(f: => Unit)Unit
+
+scala> var c=5
+c: Int = 5
+
+scala> _while(c>0){ println(c); c-=1 }
+5
+4
+3
+2
+1
+
+{%endhighlight%}
 
 ## Pattern Matching
 {%highlight scala%}

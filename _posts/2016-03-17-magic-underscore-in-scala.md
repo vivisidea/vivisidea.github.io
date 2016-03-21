@@ -9,6 +9,7 @@ tags:
 ## Import
 {%highlight scala%}
 import scala.util._ // 这里是相当于Java里面的import java.lang.*;语法
+import java.util.{HashMap => _, _} // 引入java.util._并且隐藏java.util.HashMap，避免和scala的HashMap冲突，还有这设定，好累
 {%endhighlight%}
 
 ## Pattern Matching
