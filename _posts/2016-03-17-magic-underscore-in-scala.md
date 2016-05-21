@@ -46,6 +46,13 @@ arr.reduceLeft(_+_)
 // 就完事了
 {%endhighlight%}
 
+## 部分应用函数 Partial Application
+简单的说就是将`_`部分应用于一个函数的参数，使之变成另一个函数定义，例如
+{%highlight scala%}
+def add(m:Int, n:Int) = m+n
+def add2 = add(2, _:Int) // add2 效果就变成了 n+2
+{%endhighlight%}
+
 ## 函数引用赋值
 {%highlight scala%}
 def fun(a:Int, b:Int) = a+b
