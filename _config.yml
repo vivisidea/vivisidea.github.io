@@ -21,3 +21,8 @@ highlighter: pygments
 lsi: false
 safe: true
 excerpt_separator: ""
+
+# Gems
+gems: [jekyll-paginate]
+
+markdown: kramdown
