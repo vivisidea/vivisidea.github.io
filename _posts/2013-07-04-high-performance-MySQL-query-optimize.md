@@ -9,18 +9,18 @@ tags:
 
 ## 是否请求了过多的数据，是否返回太多的行，或者请求了太多的列
 通常写SQL语句的时候都会偷懒直接写SELECT * FROM tb 但其实这个并不是个好习惯，最佳实践是只返回需要的列，例如
-{% highlight sql %}
+```sql
 SELECT col1, col2 FROM tb1 WHERE col1 = xxx AND col2 = yyy
-{% endhighlight %}
+```
 
 假设有组合索引 col1, col2 如果使用SELECT * ，那么是无法使用到覆盖索引的，MySQL需要通过索引再次查询一次记录，另外即使本来就需要返回所有的列，使用列名也有个好处，那就是当需求变更，表需要增加一列的时候，原有业务不会受到影响
 
-{% highlight sql %}
+```sql
 ALTER TABLE tb1 ADD COLUMN xxx VARCHAR(32) NOT NULL COMMENT 'comment here' AFTER `column`
-{% endhighlight %}
+```
 
 ## 在IN中增加子查询，性能通常会非常糟糕，建议使用JOIN等效来改写查询
-{% highlight sql %}
+```sql
 -- 查询某个演员出演的所有电影
 SELECT * FROM film WHERE film_id IN(
     SELECT film_id FROM film_actor WHERE actor_id = 1
@@ -47,15 +47,15 @@ mysql> EXPLAIN SELECT * FROM t2 JOIN (SELECT id FROM t2 WHERE id = 1) AS t USING
 | PRIMARY     | const  | PRIMARY       | PRIMARY | const |    1 |             |
 | DERIVED     | const  | PRIMARY       | PRIMARY |       |    1 | Using index |
 +-------------+--------+---------------+---------+-------+------+-------------+
-{% endhighlight %}
+```
 
 MySQL不允许对一张表同时进行更新和查询。
-{% highlight sql %}
+```sql
 UPDATE tb1 INNER JOIN(
     SELECT type, COUNT(*) AS cnt FROM tb1 GROUP BY type
 ) AS tmp USING(type)
 SET tb1.cnt = tmp.cnt
-{% endhighlight %}
+```
 
 INNER JOIN会被当作一张临时表来处理，子查询会在UPDATE语句打开表之前完成，语句变成多表关联UPDATE。
 

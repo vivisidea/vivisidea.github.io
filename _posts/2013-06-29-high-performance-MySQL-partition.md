@@ -23,7 +23,7 @@ MySQL的分区表是一个独立的逻辑表，底层由多个物理子表组成
 
 解决方案：使用分区表，定时任务每天凌晨自动生成下一个分区，同时将N天前的分区drop掉。
 
-{% highlight sql %}
+```sql
 -- 比较常用的是RANGE
 CREATE TABLE sales(
     id INT NOT NULL AUTO_INCREMENT,
@@ -57,7 +57,7 @@ ALTER TABLE t1 ADD PARTITION ( PARTITION p4000 VALUES LESS THAN (2015) );
 -- tips：为了考虑到分区增减的可能性，分区名字最好留点空间，例如p1000, p2000, p3000 ...
 -- 这在设计`状态`字段的时候同样适用，status=10,20,30会比status=1,2,3要更容易扩展
 
-{% endhighlight %}
+```
 
 参考资料
 

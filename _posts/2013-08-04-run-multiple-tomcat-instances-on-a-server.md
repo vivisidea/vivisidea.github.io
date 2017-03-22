@@ -33,12 +33,12 @@ how to run multiple tomcat instance on a single server.
 
 打开文件数量限制修改 
 
-{% highlight bash %}
+```bash
 修改 /etc/security/limits.conf（貌似要重启还是重新login）
 vivi            soft    nofile          200000
 vivi            hard    nofile          200000
 ulimit -n "$MAX_FILEDESCRIPTORS" 注意这个值只能改成&lt;=limits.conf里面设置的值
-{% endhighlight %}
+```
 
 tomcat端口说明
 Here is a list of the ports to change:
@@ -52,7 +52,7 @@ Tomcat至少需要两个端口，Shutdown和HTTP，shutdown端口总是监听在
 
 如果使用rotatelogs来做一天一个log文件
 
-{% highlight bash %}
+```bash
 # Run the catalina.sh script as a daemon
 set +e
 touch "$CATALINA_PID"
@@ -76,7 +76,7 @@ start-stop-daemon --start -b -u "$TOMCAT6_USER" -g "$TOMCAT6_GROUP" \
 status="$?"
 # 需要注释掉/usr/share/tomcat.x/bin/catalina.sh里的一行，否则会碰到启动卡住catalina.out无法输出的问题
 #touch "$CATALINA_OUT"
-{% endhighlight %}
+```
 
 reference
 

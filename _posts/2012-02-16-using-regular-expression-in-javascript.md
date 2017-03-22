@@ -8,14 +8,14 @@ tags:
 ---
 总是搞混RegExp对象的方法和字符串正则方法，整理备忘一下，抄自JavaScript权威指南
 
-{% highlight javascript %}
+```javascript
 var reg = new RegExp("[a-zA-Z]+", "gi");// 或者
 var rex  = /[a-zA-Z]+/gim;
-{% endhighlight %}
+```
 
 ## RegExp对象方法
 
-{% highlight javascript %}
+```javascript
 // 1. exec(string)
 // 返回：返回单个匹配，和详细信息
 var pattern = /Java/g;
@@ -36,10 +36,10 @@ console.log(/^\s*$/.test(" 1"));  // false
 console.log(/^\s*$/.test("1 "));  // false
 console.log(/^\s*$/.test(" 1 ")); // false
 console.log(/^\s*$/.test("1 1")); // false
-{% endhighlight %}
+```
 
 ## 字符串对象方法
-{% highlight javascript %}
+```javascript
 // 1. search(regexp)
 // 返回：第一个匹配的位置，或者-1; search不支持“g”标记，会直接忽略
 "JavaScript".search(/script/i); // return 4
@@ -71,4 +71,4 @@ if(list != null){
 // 返回：根据正则表达式分割后的字符串列表
 "123,456,789".split(","); // ["123", "456", "789"]
 "123  ,  456  , 789".split(/\s*,\s*/); // ["123", "456", "789"]  
-{% endhighlight %}
+```

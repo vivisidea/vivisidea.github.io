@@ -17,9 +17,9 @@ email:
 #Customvars
 version: '1.0.0'
 
-highlighter: pygments
+#highlighter: pygments
 lsi: false
-safe: true
+safe: false
 excerpt_separator: ""
 
 # Gems

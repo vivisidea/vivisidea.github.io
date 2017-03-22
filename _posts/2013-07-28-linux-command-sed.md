@@ -16,7 +16,7 @@ sed的全称是stream editor，原来这货也算是个编辑器，这应该算�
 
 
 基本用法
-{% highlight bash %}
+```
 sed 's/my/your/g' input.txt 将my替换成your
 sed 's/my/your/1' input.txt 只替换第一个匹配
 sed -n '/echo/=' input.txt 打印出包含echo的行号
@@ -25,10 +25,10 @@ sed '/echo/i # insert before' 匹配echo的行之前插入内容
 sed '/echo/a # insert after' 匹配echo的行之后插入内容
 sed '/echo/c # replace the line' 将匹配echo的行替换成指定的行内容
 sed -r '/\s*&lt;[^&gt;]*&gt;\s*/ /g' html.txt 将html标签替换成空格，测试似乎不能使用非贪婪模式&lt;.*?&gt;表达
-{% endhighlight %}
+```
 
 用法总结（不总结一下每次都要google命令。。）
-{% highlight bash %}
+```
 s 命令，替换匹配
 
 sed '[line-address1][,line-address2]s/pattern/replacement/[index|g]' input.txt
@@ -53,7 +53,7 @@ sed -e '1,3s/my/your/g' -e '3,$/this/that/g' input.txt
 
 命令嵌套打包
 sed '1,${/this/d; s/^ *//g}' input.txt 如果匹配到this那么删除，否则删除行开头空格
-{% endhighlight %}
+```
 
 参考资料
 

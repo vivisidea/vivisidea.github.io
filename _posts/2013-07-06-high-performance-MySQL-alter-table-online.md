@@ -10,13 +10,13 @@ tags:
 MySQL修改表结构的时候，会复制一份原有表的副本，对于表结构的修改在副本上进行，修改好之后使用新表替换旧表，整个过程会产生锁表。
 实际工作中有做过类似的误操作（需求改动，字段长度不够），以为改表结构很快就结束，结果造成了近40分钟的锁表，系统无法使用。
 
-{% highlight sql %}
+```sql
 ALTER TABLE MODIFY COLUMN xxx VARCHAR(64) NOT NULL DEFAULT '';
-{% endhighlight %}
+```
 
 后来查了一些资料，发现有成熟的工具可以完成在线改表结构的工作，例如percona的系列工具之一pt-online-schema-change
 
-{% highlight bash %}
+```
 vivi@ubuntu-ssd:~$ pt-online-schema-change --alter \
      "MODIFY COLUMN xxx VARCHAR(64) NOT NULL DEFAULT ''" \
      D=test,t=t2 --user dba --ask-pass --execute \
@@ -44,7 +44,7 @@ Dropped old table `test`.`_t2_old` OK.
 Dropping triggers...
 Dropped triggers OK.
 Successfully altered `test`.`t2`.
-{% endhighlight %}
+```
 
 原理大致如下
 

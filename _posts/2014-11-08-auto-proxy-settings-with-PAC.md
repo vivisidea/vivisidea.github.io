@@ -7,7 +7,7 @@ PAC = Proxy Automatic Configuration 用来自动配置代理的，本来一直�
 
 PAC文件内置的函数（<a href="http://findproxyforurl.com/pac-functions/" target="_blank">http://findproxyforurl.com/pac-functions/</a> 抄一份自己用好查）
 
-{% highlight javascript %}
+```javascript
 // If the hostname matches or contains google.com (e.g. maps.google.com, www.google.com),
 // send direct to the Internet.
 if (dnsDomainIs(host, ".google.com"))
@@ -67,7 +67,7 @@ if (timeRange(8, 18)) return "PROXY proxy1.example.com:8080";
 // to end-user or error console. 
 resolved_host = dnsResolve(host);
 alert(resolved_host);
-{% endhighlight %}
+```
 
 从内置的函数来看，PAC挺强大的，比如可以自动根据解析的地址选择是否使用代理，还可以根据不同的时间段来选择不同的代理
 
