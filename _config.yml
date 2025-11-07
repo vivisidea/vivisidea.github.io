@@ -4,14 +4,14 @@ permalink: date
 title: '开发笔记'
 tagline: 'DevNotes'
 description: 'Java程序员的开发笔记'
-url: 'http://www.devnotes.in'
+url: 'https://vivisidea.github.io'
 baseurl: ''
 paginate: 5
 
 # About/contact
 author: 
 name: '小强'
-url: 'http://www.devnotes.in'
+url: 'https://vivisidea.github.io'
 email: 
 
 #Customvars
